@@ -14,6 +14,7 @@ router.get("/", (req, res, next) => {
 
 //untuk halaman utama
 router.get("/list-psikolog", HomeController.getAllPsikolog);
+router.get("/list-psikolog/:ProfilePsikologId", HomeController.detailProfilePsikolog);
 
 //untuk dashboard psikolog (setelah login)
 router.use("/psikolog", psiokologRouter);
