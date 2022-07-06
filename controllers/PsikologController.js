@@ -18,8 +18,7 @@ module.exports = class Controller {
       })
       res.status(200).json({status : true, result : data})
     } catch (error) {
-      // next(error)
-      console.log(error);
+      next(error)
     }
   }
 
@@ -41,8 +40,7 @@ module.exports = class Controller {
       })
       res.status(200).json({status : true, result : data})
     } catch (error) {
-      // next(error)
-      console.log(error);
+      next(error)
     }
   }
 }

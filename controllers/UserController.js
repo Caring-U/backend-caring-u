@@ -3,7 +3,7 @@ const { sign } = require('../helpers/jwt');
 const { User } = require('../models')
 
 class UserController {
-    static register (req, res) {
+    static register (req, res, next) {
         const newUser = {
             username: req.body.username,
             email: req.body.email,
@@ -15,11 +15,11 @@ class UserController {
         .then((user) => {
             res.status(201).json({status : true, message : 'Successfully created a new account'})
         }).catch((err) => {
-            console.log(err)
+            next(err)
         });
     }
 
-    static login (req, res) {
+    static login (req, res, next) {
         const { email, password } = req.body
 
         User.findOne({
@@ -47,7 +47,7 @@ class UserController {
                 }
             }
         }).catch((err) => {
-            console.log(err);
+            next(err)
         });
     }
 }
