@@ -33,15 +33,11 @@ class UserController {
                 }
             } else {
                 if (comparePassword(password, user.password)) {
-                    const access_token = sign({ email: user.email})
+                    const access_token = sign({id : user.id, email: user.email})
 
                     res.status(200).json({
                         status: true,
-                        data: {
-                            access_token,
-                            username: user.username,
-                            email: user.email
-                        }
+                        result : access_token
                     })
                 } else {
                     throw {

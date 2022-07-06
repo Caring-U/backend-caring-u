@@ -7,7 +7,7 @@ module.exports = class Controller {
         include : [{
           model : ProfilePsikolog,
           where : {
-            UserId : 5 //berdasarkan req.user.id yg login, cek nya di auth middleware
+            UserId : req.user.id //berdasarkan req.user.id yg login, cek nya di auth middleware
           }
         }, {
           model : CustomerBooking,
@@ -32,7 +32,7 @@ module.exports = class Controller {
         include : [{
           model : ProfilePsikolog,
           where : {
-            UserId : 4 //berdasarkan req.user.id yg login, cek nya di auth middleware
+            UserId : req.user.id //berdasarkan req.user.id yg login, cek nya di auth middleware
           }
         }, {
           model : CustomerBooking,
