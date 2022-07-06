@@ -28,7 +28,7 @@ class UserController {
         .then((user) => {
             if(!user) {
                 throw {
-                    status: false,
+                    status: 401,
                     message: "Invalid email or password"
                 }
             } else {
@@ -37,11 +37,12 @@ class UserController {
 
                     res.status(200).json({
                         status: true,
-                        result : access_token
+                        result : access_token,
+                        role : user.role
                     })
                 } else {
                     throw {
-                        status: false,
+                        status: 401,
                         message: "Invalid email or password"
                     }
                 }
