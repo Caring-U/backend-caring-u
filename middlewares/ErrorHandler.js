@@ -2,9 +2,13 @@ module.exports = (err, req, res, next) => {
     let errorStatus = err.status || 500;
     let msgError = err.message;
 
-    if (err.name === "userNotFound") {
+    if (err.name === "NotFound") {
         msgError;
         errorStatus = 404;
-        res.status(errorStatus).json({ message: msgError });
+    } else if (err.name === "Forbidden") {
+        msgError;
+        errorStatus = 403;
     }
+
+    res.status(errorStatus).json({ message: msgError });
 };
