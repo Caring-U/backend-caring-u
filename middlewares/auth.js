@@ -16,7 +16,11 @@ module.exports = {
             const user = await User.findOne({ where : { email: decoded.email }})
 
             if(!user) throw { status: false, message : "Please Login First!"}
-            req.user = user
+            // req.user = user
+            req.user = {
+                id : user.id,
+                username : user.username
+            }
             next()
         } catch (error) {
             next(err)
