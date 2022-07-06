@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const psiokologRouter = require('./psikologRouter.js')
+const userRouter = require('./userRouter.js')
 
 router.get('/', (req, res, next) => {
   res.status(200).json({
@@ -9,5 +10,6 @@ router.get('/', (req, res, next) => {
 })
 
 router.use('/psiokolog',psiokologRouter)
+router.use('/users', userRouter)
 
 module.exports = router
