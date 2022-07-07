@@ -1,0 +1,36 @@
+TESTING
+
+panduan coverage 
+https://medium.com/javascript-typescript-upgrade/test-driven-development-t-dd-dengan-jest-coverage-6e251b1f4376
+
+1. REGISTER
+   - success => DONE
+   - email not entered => DONE
+   - email's empty = "" => DONE
+   - email registered  => DONE
+   - Email incorrect format => DONE
+
+   - password not entered => DONE
+   - password's empty => DONE
+
+   - username not entered => DONE
+   - username's empty => DONE
+   - username registered => DONE
+
+   - role's empty => DONE
+ 
+2. LOGIN  
+   - success => DONE
+   - wrong email => DONE
+   - wrong password => DONE
+
+3. HOME
+   - psikolog list => DONE
+   - psikolog details => DONE
+
+4. CLIENT
+   - all Customer Booking => DONE
+   - details  Customer Booking => DONE
+
+5. PSIKOLOG
+   

@@ -1,0 +1,16 @@
+[
+    {
+        "UserId": 1,
+        "ScheduleId": 1,
+        "linkMeet": null,
+        "paymentStatus": "pending",
+        "statusBooking": "undone"
+    },
+    {
+        "UserId": 1,
+        "ScheduleId": 1,
+        "linkMeet": null,
+        "paymentStatus": "pending",
+        "statusBooking": "undone"
+    }
+]
