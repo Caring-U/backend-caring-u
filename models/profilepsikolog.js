@@ -21,6 +21,8 @@ module.exports = (sequelize, DataTypes) => {
             description: DataTypes.TEXT,
             rating: DataTypes.INTEGER,
             certificate: DataTypes.STRING,
+            status: DataTypes.STRING,
+            
         },
         {
             sequelize,
