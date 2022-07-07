@@ -1,5 +1,5 @@
 const { verify } = require("../helpers/jwt");
-const { User, CustomerBooking, SchedulePsikolog } = require("../models");
+const { User, CustomerBooking, SchedulePsikolog, ProfilePsikolog } = require("../models");
 
 module.exports = {
     async authentication(req, res, next) {
@@ -16,6 +16,7 @@ module.exports = {
             const user = await User.findOne({ where: { email: decoded.email } });
 
             if(!user) throw { status: 401, message : "Please Login First!"}
+            //kirimkan email juga
             req.user = {
                 id: user.id,
                 username: user.username,
@@ -66,7 +67,43 @@ module.exports = {
         next()
         }catch (error) {
             next(error)
-            next(error);
         }
     },
+
+    async checkFoundProfilePsikolog(req, res, next){
+        try {
+          const check = await ProfilePsikolog.findOne({
+            where : {
+              UserId: req.user.id
+            }
+          })
+          if(!check){
+            next()
+          }else{
+            throw {status : 403, message : "you have created a profile"}
+          }
+        } catch (error) {
+          next(error)
+        }
+    },
+
+    async checkProfilePsikolog(req, res, next){
+        try {
+          const check = await ProfilePsikolog.findOne({
+            where : {
+              UserId: req.user.id
+            }
+          })
+          if(!check){
+            throw {status : 403, message : "please create your profile"}
+          }else{
+            req.profilePsikolog = {
+                id : check.id
+            }
+            next()
+          }
+        } catch (error) {
+          next(error)
+        }
+      }
 };
