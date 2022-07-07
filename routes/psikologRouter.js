@@ -8,4 +8,4 @@ router.post('/profile',authentication, checkFoundProfilePsikolog,  Controller.cr
 router.post('/profile/schedule',authentication, checkProfilePsikolog,  Controller.createSchedule)
 router.get('/:ScheduleId', authentication,authorizeOwnerPsikolog, Controller.detailSchedule)
 
-module.exports = router
+module.exports = router;

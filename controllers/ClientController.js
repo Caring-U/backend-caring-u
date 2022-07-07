@@ -94,7 +94,7 @@ class Controller {
                         bank: req.body.bank
                     },
                     customer_details: {
-                        email: req.body.email
+                        email: req.user.email
                     }
                   }
             }

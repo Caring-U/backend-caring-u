@@ -8,18 +8,19 @@ module.exports = {
             if (!access_token) {
                 throw {
                     status: 401,
-                    message: "Please Login First!"
-                }
+                    message: "Please Login First!",
+                };
             }
 
             let decoded = verify(access_token);
             const user = await User.findOne({ where: { email: decoded.email } });
 
-            if(!user) throw { status: 401, message : "Please Login First!"}
             //kirimkan email juga
+            if (!user) throw { status: 401, message: "Please Login First!" };
             req.user = {
                 id: user.id,
                 username: user.username,
+                email : user.email
             };
             next();
         } catch (error) {
@@ -37,30 +38,31 @@ module.exports = {
             if (checkingCustomerBooking.UserId != req.user.id) throw { name: "Forbidden", message: "not Allowed access" };
             next();
         } catch (error) {
-            next(error)
+            next(error);
         }
     },
+
     async authorizeOwnerPsikolog(req, res, next) {
         try {
-        const check = await SchedulePsikolog.findOne({
-            where : {
-                id : req.params.ScheduleId
+            const check = await SchedulePsikolog.findOne({
+                where: {
+                    id: req.params.ScheduleId,
+                },
+            });
+            if (!check) {
+                throw { status: 404, message: "schedule not found" };
             }
-        })
-        if(!check){
-            throw {status : 404, message : 'schedule not found'}
-        }
-        const data = await SchedulePsikolog.findOne({
-            where : {
-              id : req.params.ScheduleId
-            },
-            include : [{
-              model : ProfilePsikolog,
+          const data = await SchedulePsikolog.findOne({
               where : {
-                UserId : req.user.id 
-              }
-            }]
-          })
+                id : req.params.ScheduleId
+              },
+              include : [{
+                model : ProfilePsikolog,
+                where : {
+                  UserId : req.user.id 
+                }
+              }]
+            })
           if (!data) {
             throw {status : 403, message : 'not access in here'}
           }
