@@ -1,0 +1,14 @@
+[
+    {
+        "username": "nanas",
+        "email": "nanas@gmail.com",
+        "password": "112233",
+        "role": "psikolog"
+    },
+    {
+        "username": "nas",
+        "email": "nas@gmail.com",
+        "password": "nas123",
+        "role": "client"
+    }
+]
