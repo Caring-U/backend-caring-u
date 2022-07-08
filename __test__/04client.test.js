@@ -2,7 +2,6 @@ const request = require("supertest");
 const app = require("../app");
 const { sequelize, User } = require("../models");
 const { queryInterface } = sequelize;
-const { hashPassword } = require("../helpers/bcrypt");
 const { sign } = require("../helpers/jwt");
 
 const users = {
@@ -74,7 +73,7 @@ afterAll(async () => {
     }
 });
 
-test("customer booking: client", (done) => {
+test("customer booking: client login", (done) => {
     request(app)
         .get("/client")
         .set("access_token", access_token)
@@ -95,3 +94,14 @@ test("customer booking: details", (done) => {
         })
         .catch((err) => done(err));
 });
+
+// test("customer booking: booking", (done) => {
+//     request(app)
+//         .post("/client/booking")
+//         .set("access_token", access_token)
+//         .expect(200)
+//         .then((response) => {
+//             done();
+//         })
+//         .catch((err) => done(err));
+// });
