@@ -16,5 +16,3 @@ app.use(allRouter);
 app.use(errorHandler);
 
 module.exports = app
-
-
