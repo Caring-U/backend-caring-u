@@ -9,6 +9,7 @@ class Controller {
             const allCustBooking = await CustomerBooking.findAndCountAll({
                 where: { UserId },
                 attributes: ["id", "UserId", "ScheduleId", "linkMeet", "paymentStatus", "statusBooking"],
+                order: [['id', 'DESC']]
             });
 
             if (!allCustBooking) throw { name: "NotFound", message: "customer booking is nothing found" };
@@ -113,7 +114,7 @@ class Controller {
             // if(charge.data.status_code  !== "200"){
             //     throw {status : +charge.data.status_code, message : charge.data.status_message}
             // }
-            //belum create table customer booking
+            //belum create table customer booking,
             res.status(200).json(charge.data)
             await t.commit();
         } catch (error) {

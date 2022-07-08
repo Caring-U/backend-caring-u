@@ -14,7 +14,8 @@ module.exports = class Controller {
           include : [User]
         }],
         offset: req.query.page || 0, 
-        limit: 4
+        limit: 4,
+        order: [['id', 'DESC']],
       })
       res.status(200).json({status : true, result : data})
     } catch (error) {
@@ -69,6 +70,7 @@ module.exports = class Controller {
         description: req.body.description,
         rating: 0,
         certificate: req.body.certificate,
+        status : "Pending"
       }
       await ProfilePsikolog.create(data)
       res.status(201).json({status : true, message : "success create profile"})
