@@ -19,7 +19,8 @@ module.exports = (sequelize, DataTypes) => {
             ScheduleId: DataTypes.INTEGER,
             linkMeet: DataTypes.STRING,
             paymentStatus: DataTypes.STRING,
-            statusBooking: DataTypes.STRING,
+            orderIdMidtrans: DataTypes.STRING,
+            VAPaymentMidtrans: DataTypes.STRING,
         },
         {
             sequelize,
