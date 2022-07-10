@@ -113,7 +113,6 @@ class Controller {
             if(charge.data.status_code  !== "201"){
                 throw {status : +charge.data.status_code, message : charge.data.status_message}
             }
-            //belum handle buat link meet,
             await CustomerBooking.create({
                 UserId : req.user.id,
                 ScheduleId : req.body.schedulePsikologId,
