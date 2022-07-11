@@ -53,7 +53,7 @@ class Controller {
     }
 
     static async booking(req, res, next) {
-        const t = await sequelize.transaction();
+        // const t = await sequelize.transaction();
         try {
             const schedule = await SchedulePsikolog.findOne({
                 where : {
@@ -64,8 +64,7 @@ class Controller {
                 throw {status : 404, message : "schedule not found"}
             }
             let data
-            
-            const bank = ["bca", "bni", "bri", "permata"]
+            const bank = ["bca", "bni","bri","permata"]
 
             const checkBank = bank.some(el => el === req.body.bank.toLowerCase())
 
@@ -111,14 +110,22 @@ class Controller {
                 data
             })
 
-            // if(charge.data.status_code  !== "200"){
-            //     throw {status : +charge.data.status_code, message : charge.data.status_message}
-            // }
-            //belum create table customer booking,
-            res.status(200).json(charge.data)
-            await t.commit();
+            if(charge.data.status_code  !== "201"){
+                throw {status : +charge.data.status_code, message : charge.data.status_message}
+            }
+            await CustomerBooking.create({
+                UserId : req.user.id,
+                ScheduleId : req.body.schedulePsikologId,
+                linkMeet : "xxxxxxxx",
+                paymentStatus : charge.data.transaction_status,
+                orderIdMidtrans : charge.data.order_id,
+                VAPaymentMidtrans : "xxx"
+
+            })
+            res.status(200).json({message : "testing", orderId : charge.data.order_id})
+            // await t.commit();
         } catch (error) {
-            await t.rollback();
+            // await t.rollback();
             next(error)
         }
     }

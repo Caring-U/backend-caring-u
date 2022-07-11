@@ -31,6 +31,13 @@ https://medium.com/javascript-typescript-upgrade/test-driven-development-t-dd-de
 4. CLIENT
    - all Customer Booking => DONE
    - details  Customer Booking => DONE
+   - booking
 
 5. PSIKOLOG
+   - psikolog login => DONE
+   - psikolog profile => DONE
+   - psikolog createProfile => DONE
+   - psikolog createSchedule => DONE
+   - psikolog detailSchedule => DONE
+   
    

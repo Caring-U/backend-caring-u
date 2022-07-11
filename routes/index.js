@@ -17,6 +17,9 @@ router.get("/", (req, res, next) => {
 router.get("/list-psikolog", HomeController.getAllPsikolog);
 router.get("/list-psikolog/:ProfilePsikologId", HomeController.detailProfilePsikolog);
 
+//handling auto notifikasi
+router.post("/notifikasi-midtrans", HomeController.updatePaymentStatus)
+
 //untuk dashboard psikolog (setelah login)
 router.use("/psikolog", psiokologRouter);
 
