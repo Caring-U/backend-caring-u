@@ -8,7 +8,7 @@ class Controller {
         try {
             const allCustBooking = await CustomerBooking.findAndCountAll({
                 where: { UserId },
-                attributes: ["id", "UserId", "ScheduleId", "linkMeet", "paymentStatus", "statusBooking"],
+                attributes: ["id", "UserId", "ScheduleId", "linkMeet", "paymentStatus"],
                 order: [['id', 'DESC']]
             });
 
@@ -27,7 +27,7 @@ class Controller {
         try {
             let option = {
                 where: { [Op.and]: [{ id: req.params.custBookingId }, { UserId: req.user.id }] },
-                attributes: ["id", "UserId", "ScheduleId", "linkMeet", "paymentStatus", "statusBooking"],
+                attributes: ["id", "UserId", "ScheduleId", "linkMeet", "paymentStatus"],
                 include: [
                     {
                         model: SchedulePsikolog,

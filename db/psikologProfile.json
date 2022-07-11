@@ -1,9 +1,72 @@
 [
     {
+        "id": 1,
         "UserId": 1,
         "fullname": "nasrun",
         "imageUrl": "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80",
         "description": "Fajrin atau yang akrab disapa dengan Arin merupakan seorang Psikolog Klinis yang memiliki ketertarikan pada anak, remaja, dan dewasa. Arin berfokus kepada mengembangkan individu dengan membantu melalui kekuatan/ kelebihan yang individu tersebut miliki. Hal tersebut didapatkan melalui rasa percaya, aman, dan empati satu sama lain antara Arin dengan individu tersebut dalam menghadapi suatu permasalahan/ kasus. Beberapa ketertarikan dan pengalaman Arin dalam menangani kasus seperti gangguan belajar, hambatan intelektual, trauma, masalah emosi, gangguan bahasa, ketergantungan zat, kecemasan, depresi, dan gangguan suasana hati. Melalui konseling dengan Arin, diharapkan setiap individu dapat merasa diterima, memahami dirinya, hingga dapat memberdayakan dirinya agar dapat sejahtera secara psikologis serta tumbuh dan berkembang menjadi individu yang lebih baik lagi.",
-        "rating": 0
+        "rating": 0,
+        "certificate": "certificate",
+        "status": "Verify"
+    },
+    {
+        "id": 2,
+        "UserId": 2,
+        "fullname": "Rozikin",
+        "imageUrl": "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80",
+        "description": "Rozikin atau yang akrab disapa dengan Arin merupakan seorang Psikolog Klinis yang memiliki ketertarikan pada anak, remaja, dan dewasa. Arin berfokus kepada mengembangkan individu dengan membantu melalui kekuatan/ kelebihan yang individu tersebut miliki. Hal tersebut didapatkan melalui rasa percaya, aman, dan empati satu sama lain antara Arin dengan individu tersebut dalam menghadapi suatu permasalahan/ kasus. Beberapa ketertarikan dan pengalaman Arin dalam menangani kasus seperti gangguan belajar, hambatan intelektual, trauma, masalah emosi, gangguan bahasa, ketergantungan zat, kecemasan, depresi, dan gangguan suasana hati. Melalui konseling dengan Arin, diharapkan setiap individu dapat merasa diterima, memahami dirinya, hingga dapat memberdayakan dirinya agar dapat sejahtera secara psikologis serta tumbuh dan berkembang menjadi individu yang lebih baik lagi.",
+        "rating": 0,
+        "certificate": "certificate",
+        "status": "Verify"
+    },
+    {
+        "id": 3,
+        "UserId": 3,
+        "fullname": "Emi",
+        "imageUrl": "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80",
+        "description": "Emi atau yang akrab disapa dengan Arin merupakan seorang Psikolog Klinis yang memiliki ketertarikan pada anak, remaja, dan dewasa. Arin berfokus kepada mengembangkan individu dengan membantu melalui kekuatan/ kelebihan yang individu tersebut miliki. Hal tersebut didapatkan melalui rasa percaya, aman, dan empati satu sama lain antara Arin dengan individu tersebut dalam menghadapi suatu permasalahan/ kasus. Beberapa ketertarikan dan pengalaman Arin dalam menangani kasus seperti gangguan belajar, hambatan intelektual, trauma, masalah emosi, gangguan bahasa, ketergantungan zat, kecemasan, depresi, dan gangguan suasana hati. Melalui konseling dengan Arin, diharapkan setiap individu dapat merasa diterima, memahami dirinya, hingga dapat memberdayakan dirinya agar dapat sejahtera secara psikologis serta tumbuh dan berkembang menjadi individu yang lebih baik lagi.",
+        "rating": 0,
+        "certificate": "certificate",
+        "status": "Verify"
+    },
+    {
+        "id": 4,
+        "UserId": 4,
+        "fullname": "Fitri",
+        "imageUrl": "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80",
+        "description": "Fitri atau yang akrab disapa dengan Arin merupakan seorang Psikolog Klinis yang memiliki ketertarikan pada anak, remaja, dan dewasa. Arin berfokus kepada mengembangkan individu dengan membantu melalui kekuatan/ kelebihan yang individu tersebut miliki. Hal tersebut didapatkan melalui rasa percaya, aman, dan empati satu sama lain antara Arin dengan individu tersebut dalam menghadapi suatu permasalahan/ kasus. Beberapa ketertarikan dan pengalaman Arin dalam menangani kasus seperti gangguan belajar, hambatan intelektual, trauma, masalah emosi, gangguan bahasa, ketergantungan zat, kecemasan, depresi, dan gangguan suasana hati. Melalui konseling dengan Arin, diharapkan setiap individu dapat merasa diterima, memahami dirinya, hingga dapat memberdayakan dirinya agar dapat sejahtera secara psikologis serta tumbuh dan berkembang menjadi individu yang lebih baik lagi.",
+        "rating": 0,
+        "certificate": "certificate",
+        "status": "Verify"
+    },
+    {
+        "id": 5,
+        "UserId": 5,
+        "fullname": "Utami",
+        "imageUrl": "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80",
+        "description": "Utami atau yang akrab disapa dengan Arin merupakan seorang Psikolog Klinis yang memiliki ketertarikan pada anak, remaja, dan dewasa. Arin berfokus kepada mengembangkan individu dengan membantu melalui kekuatan/ kelebihan yang individu tersebut miliki. Hal tersebut didapatkan melalui rasa percaya, aman, dan empati satu sama lain antara Arin dengan individu tersebut dalam menghadapi suatu permasalahan/ kasus. Beberapa ketertarikan dan pengalaman Arin dalam menangani kasus seperti gangguan belajar, hambatan intelektual, trauma, masalah emosi, gangguan bahasa, ketergantungan zat, kecemasan, depresi, dan gangguan suasana hati. Melalui konseling dengan Arin, diharapkan setiap individu dapat merasa diterima, memahami dirinya, hingga dapat memberdayakan dirinya agar dapat sejahtera secara psikologis serta tumbuh dan berkembang menjadi individu yang lebih baik lagi.",
+        "rating": 0,
+        "certificate": "certificate",
+        "status": "Verify"
+    },
+    {
+        "id": 6,
+        "UserId": 6,
+        "fullname": "Andry",
+        "imageUrl": "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80",
+        "description": "Andry atau yang akrab disapa dengan Arin merupakan seorang Psikolog Klinis yang memiliki ketertarikan pada anak, remaja, dan dewasa. Arin berfokus kepada mengembangkan individu dengan membantu melalui kekuatan/ kelebihan yang individu tersebut miliki. Hal tersebut didapatkan melalui rasa percaya, aman, dan empati satu sama lain antara Arin dengan individu tersebut dalam menghadapi suatu permasalahan/ kasus. Beberapa ketertarikan dan pengalaman Arin dalam menangani kasus seperti gangguan belajar, hambatan intelektual, trauma, masalah emosi, gangguan bahasa, ketergantungan zat, kecemasan, depresi, dan gangguan suasana hati. Melalui konseling dengan Arin, diharapkan setiap individu dapat merasa diterima, memahami dirinya, hingga dapat memberdayakan dirinya agar dapat sejahtera secara psikologis serta tumbuh dan berkembang menjadi individu yang lebih baik lagi.",
+        "rating": 0,
+        "certificate": "certificate",
+        "status": "Verify"
+    },
+    {
+        "id": 7,
+        "UserId": 7,
+        "fullname": "Rahmana",
+        "imageUrl": "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80",
+        "description": "Rahmana atau yang akrab disapa dengan Arin merupakan seorang Psikolog Klinis yang memiliki ketertarikan pada anak, remaja, dan dewasa. Arin berfokus kepada mengembangkan individu dengan membantu melalui kekuatan/ kelebihan yang individu tersebut miliki. Hal tersebut didapatkan melalui rasa percaya, aman, dan empati satu sama lain antara Arin dengan individu tersebut dalam menghadapi suatu permasalahan/ kasus. Beberapa ketertarikan dan pengalaman Arin dalam menangani kasus seperti gangguan belajar, hambatan intelektual, trauma, masalah emosi, gangguan bahasa, ketergantungan zat, kecemasan, depresi, dan gangguan suasana hati. Melalui konseling dengan Arin, diharapkan setiap individu dapat merasa diterima, memahami dirinya, hingga dapat memberdayakan dirinya agar dapat sejahtera secara psikologis serta tumbuh dan berkembang menjadi individu yang lebih baik lagi.",
+        "rating": 0,
+        "certificate": "certificate",
+        "status": "Verify"
     }
 ]
