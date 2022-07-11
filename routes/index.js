@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const psiokologRouter = require("./psikologRouter.js");
 const clientRouter = require("./clientRouter.js");
+const adminRouter = require("./adminRouter.js")
 
 const HomeController = require("../controllers/HomeController.js");
 const userRouter = require("./userRouter.js");
