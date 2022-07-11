@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const psiokologRouter = require("./psikologRouter.js");
 const clientRouter = require("./clientRouter.js");
-const adminRouter = require("./adminRouter.js")
+const adminRouter = require("./adminRouter.js");
 
 const HomeController = require("../controllers/HomeController.js");
 const userRouter = require("./userRouter.js");
@@ -14,16 +14,16 @@ router.get("/", (req, res, next) => {
 });
 
 //untuk halaman utama
-router.get("/list-psikolog", HomeController.getAllPsikolog);
-router.get("/list-psikolog/:ProfilePsikologId", HomeController.detailProfilePsikolog);
+router.get("/list-psikolog", HomeController.getAllPsikolog); // berhasil
+router.get("/list-psikolog/:ProfilePsikologId", HomeController.detailProfilePsikolog); // berhasil
 
 //handling auto notifikasi
-router.post("/notifikasi-midtrans", HomeController.updatePaymentStatus)
+router.post("/notifikasi-midtrans", HomeController.updatePaymentStatus);
 
 //untuk dashboard psikolog (setelah login)
-router.use("/psikolog", psiokologRouter);
+router.use("/psikolog", psiokologRouter); // berhasil
 
-router.use("/admin", adminRouter)
+router.use("/admin", adminRouter);
 
 // untuk dashboard client
 router.use("/client", clientRouter);
