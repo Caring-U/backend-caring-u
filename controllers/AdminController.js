@@ -15,7 +15,7 @@ class AdminController {
     }
 
     static updateStatusPsikolog (req, res, next) {
-        const statusUpdate = ['Pending', 'Reject', 'Verify']
+        const statusUpdate = ['Pending', 'Verify']
         const checkStatus = statusUpdate.some(el => el === req.body.status)
         if (checkStatus) {
             let psikolog

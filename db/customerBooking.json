@@ -1,16 +1,34 @@
 [
     {
-        "UserId": 1,
+        "UserId": 9,
         "ScheduleId": 1,
         "linkMeet": null,
         "paymentStatus": "pending",
-        "statusBooking": "undone"
+        "orderIdMidtrans": "idmidtrans",
+        "VAPaymentMidtrans": "payment"
     },
     {
-        "UserId": 1,
+        "UserId": 10,
         "ScheduleId": 1,
         "linkMeet": null,
         "paymentStatus": "pending",
-        "statusBooking": "undone"
+        "orderIdMidtrans": "idmidtrans",
+        "VAPaymentMidtrans": "payment"
+    },
+    {
+        "UserId": 9,
+        "ScheduleId": 3,
+        "linkMeet": null,
+        "paymentStatus": "pending",
+        "orderIdMidtrans": "idmidtrans",
+        "VAPaymentMidtrans": "payment"
+    },
+    {
+        "UserId": 10,
+        "ScheduleId": 4,
+        "linkMeet": null,
+        "paymentStatus": "pending",
+        "orderIdMidtrans": "idmidtrans",
+        "VAPaymentMidtrans": "payment"
     }
 ]
