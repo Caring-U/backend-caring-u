@@ -23,6 +23,8 @@ router.post("/notifikasi-midtrans", HomeController.updatePaymentStatus)
 //untuk dashboard psikolog (setelah login)
 router.use("/psikolog", psiokologRouter);
 
+router.use("/admin", adminRouter)
+
 // untuk dashboard client
 router.use("/client", clientRouter);
 

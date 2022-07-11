@@ -20,7 +20,8 @@ module.exports = {
             req.user = {
                 id: user.id,
                 username: user.username,
-                email : user.email
+                email : user.email,
+                role: user.role
             };
             next();
         } catch (error) {
@@ -108,4 +109,12 @@ module.exports = {
           next(error)
         }
       },
+
+      authorizeAdmin (req, res, next) {
+        if (req.user.role === 'admin') {
+            next()
+        } else {
+            next({status : 403, message : 'You Cannot Access To Change Status Psikolog'})
+        }
+    },
 }
