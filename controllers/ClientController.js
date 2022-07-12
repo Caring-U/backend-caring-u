@@ -110,6 +110,8 @@ class Controller {
                 data
             })
 
+            // console.log(charge.data);
+
             if(charge.data.status_code  !== "201"){
                 throw {status : +charge.data.status_code, message : charge.data.status_message}
             }

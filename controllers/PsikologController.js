@@ -99,7 +99,7 @@ module.exports = class Controller {
                 fullname: req.body.fullname,
                 imageUrl: req.body.imageUrl,
                 description: req.body.description,
-                certificate: req.body.certificate,
+                certificat: req.body.certificat,
             };
             const editPsikolog = await ProfilePsikolog.update(edited, {
                 where: {

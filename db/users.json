@@ -1,69 +1,59 @@
 [
     {
-        "id": 1,
         "username": "nanas",
         "email": "nanas@gmail.com",
         "password": "112233",
         "role": "psikolog"
     },
     {
-        "id": 2,
         "username": "Rozikin",
         "email": "rozikin@gmail.com",
         "password": "112233",
         "role": "psikolog"
     },
     {
-        "id": 3,
         "username": "Emi",
         "email": "emi@gmail.com",
         "password": "112233",
         "role": "psikolog"
     },
     {
-        "id": 4,
         "username": "Fitri",
         "email": "fitri@gmail.com",
         "password": "112233",
         "role": "psikolog"
     },
     {
-        "id": 5,
         "username": "Utami",
         "email": "utami@gmail.com",
         "password": "112233",
         "role": "psikolog"
     },
     {
-        "id": 6,
         "username": "Andry",
         "email": "andry@gmail.com",
         "password": "112233",
         "role": "psikolog"
     },
     {
-        "id": 7,
         "username": "Rahmana",
         "email": "rahmana@gmail.com",
         "password": "112233",
         "role": "psikolog"
     },
     {
-        "id": 8,
         "username": "Wahyu",
         "email": "wahyu@gmail.com",
         "password": "112233",
         "role": "admin"
     },
     {
-        "id": 9,
         "username": "nas",
         "email": "nas@gmail.com",
         "password": "nas123",
         "role": "client"
     },
     {
-        "id": 10,
         "username": "Sulfianto",
         "email": "anto@gmail.com",
         "password": "112233",
