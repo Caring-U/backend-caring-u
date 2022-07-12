@@ -1,4 +1,4 @@
-const { axios } = require('axios')
+const axios = require('axios')
 const {ProfilePsikolog, SchedulePsikolog, CustomerBooking} = require('../models')
 
 module.exports = class Controller {
@@ -51,16 +51,16 @@ module.exports = class Controller {
         }
         )
         linkMeet = `https://ammin.metered.live/${result.data.roomName}`
+        await CustomerBooking.update({paymentStatus, linkMeet}, {
+          where : {
+            orderIdMidtrans : req.body.order_id
+          }
+        })
       }else if(req.body.transaction_status === "deny" || req.body.transaction_status === "cancel" || req.body.transaction_status === "expire"){
         paymentStatus = "unpaid"
       }else{
         paymentStatus = "pending"
       }
-      await CustomerBooking.update({paymentStatus, linkMeet}, {
-        where : {
-          orderIdMidtrans : req.body.order_id
-        }
-      })
       res.status(200).json({status : true, message : `success update orderId ${req.body.order_id}`})
     } catch (error) {
       next(error)
