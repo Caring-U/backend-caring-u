@@ -5,7 +5,7 @@ const { authentication, authorizeOwnerPsikolog, checkFoundProfilePsikolog, check
 router.get("/", authentication, Controller.getAllSchedule); 
 router.get("/profile", authentication, Controller.profilePsikolog); 
 router.post("/profile", authentication, checkFoundProfilePsikolog, Controller.createProfile); 
-router.patch("/profile", authentication, Controller.patchProfile); 
+router.patch("/profile", authentication, Controller.patchProfile);
 router.post("/profile/schedule", authentication, checkProfilePsikolog, Controller.createSchedule); 
 router.get("/:ScheduleId", authentication, authorizeOwnerPsikolog, Controller.detailSchedule); 
 
