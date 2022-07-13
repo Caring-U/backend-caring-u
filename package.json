@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx jest --detectOpenHandles --coverage",
-    "testw": "jest --watchAll",
+    "test": "npx jest --coverage --detectOpenHandles",
+    "testw": "npx jest --watch",
     "dev": "npx nodemon bin/www"
   },
   "repository": {
