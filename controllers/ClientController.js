@@ -4,32 +4,19 @@ const axios = require("axios");
 
 class Controller {
     static async allCustBooking(req, res, next) {
-        // const UserId = req.user.id;
         try {
-            // const allCustBooking = await CustomerBooking.findAndCountAll({
-            //     where: { UserId },
-            //     attributes: ["id", "UserId", "ScheduleId", "linkMeet", "paymentStatus"],
-            //     order: [["id", "DESC"]],
-            // });
-
-            // if (!allCustBooking) throw { name: "NotFound", message: "customer booking is nothing found" };
-
-            // res.status(200).json({
-            //     status: true,
-            //     data: allCustBooking,
-            // });
             const result = await CustomerBooking.findAndCountAll({
-                where : {
-                    UserId : req.user.id
+                where: {
+                    UserId: req.user.id,
                 },
-                include: [{
-                    model : SchedulePsikolog,
-                    include : ProfilePsikolog
-                }],
-                offset: req.query.page || 0,
-                limit: 4,
-            })
-            res.status(200).json(result)
+                include: [
+                    {
+                        model: SchedulePsikolog,
+                        include: ProfilePsikolog,
+                    },
+                ],
+            });
+            res.status(200).json(result);
         } catch (error) {
             next(error);
         }

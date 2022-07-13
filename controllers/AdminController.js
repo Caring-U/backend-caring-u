@@ -4,8 +4,6 @@ class AdminController {
     static async getAllPSikologStatus (req, res, next) {
         try {
             const data = await ProfilePsikolog.findAndCountAll({
-              offset: req.query.page || 0,
-              limit: 4,
               attributes  : ["id","UserId","fullname", "imageUrl", "rating", "status"]
             })
             res.status(200).json({status : true, result : data})

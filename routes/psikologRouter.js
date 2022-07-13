@@ -5,10 +5,10 @@ const { authentication, authorizeOwnerPsikolog, checkFoundProfilePsikolog, check
 router.get("/", authentication, Controller.getAllSchedule); 
 router.get("/profile", authentication, Controller.profilePsikolog); 
 router.post("/profile", authentication, checkFoundProfilePsikolog, Controller.createProfile); 
-router.patch("/profile", authentication, Controller.patchProfile);
+router.patch("/profile", authentication, Controller.patchProfile); // 1
 router.post("/profile/schedule", authentication, checkProfilePsikolog, Controller.createSchedule); 
 router.get("/:ScheduleId", authentication, authorizeOwnerPsikolog, Controller.detailSchedule); 
-router.delete("/:ScheduleId", authentication, authorizeOwnerPsikolog, Controller.destroySchedule); 
-router.put("/:ScheduleId", authentication, authorizeOwnerPsikolog,checkProfilePsikolog, Controller.updateSchedule); 
+router.delete("/:ScheduleId", authentication, authorizeOwnerPsikolog, Controller.destroySchedule); // 2
+router.put("/:ScheduleId", authentication, authorizeOwnerPsikolog,checkProfilePsikolog, Controller.updateSchedule); // 3
 
 module.exports = router;

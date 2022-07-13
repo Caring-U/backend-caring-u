@@ -16,8 +16,6 @@ module.exports = class Controller {
                         include: [User],
                     },
                 ],
-                offset: req.query.page || 0,
-                limit: 4,
                 order: [["id", "DESC"]],
             });
             res.status(200).json({ status: true, result: data });
@@ -108,7 +106,7 @@ module.exports = class Controller {
                 returning: true,
             });
 
-            res.status(201).json({ status: true, result: editPsikolog[1][0] });
+            res.status(200).json({ status: true, result: editPsikolog[1][0] });
         } catch (error) {
             next(error);
         }
@@ -135,7 +133,7 @@ module.exports = class Controller {
                     id : req.params.ScheduleId
                 }
             })
-            res.status().json({status : true, message : `success delete id schedule ${req.params.ScheduleId}`})
+            res.status(200).json({status : true, message : `success delete id schedule ${req.params.ScheduleId}`})
         } catch (error) {
             next(error);
         }
@@ -151,7 +149,7 @@ module.exports = class Controller {
             await SchedulePsikolog.update(data, {where : {
                 id : req.params.ScheduleId
             }});
-            res.status().json({status : true, message : `success update id schedule ${req.params.ScheduleId}`})
+            res.status(200).json({status : true, message : `success update id schedule ${req.params.ScheduleId}`})
         } catch (error) {
             next(error);
         }

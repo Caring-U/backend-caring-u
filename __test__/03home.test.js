@@ -72,7 +72,7 @@ test("psikolog: list", (done) => {
 
 test("psikolog: details", (done) => {
     request(app)
-        .get(`/list-psikolog/${1}`)
+        .get(`/list-psikolog/1`)
         .expect(200)
         .then((response) => {
             done();

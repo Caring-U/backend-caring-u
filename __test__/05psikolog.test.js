@@ -53,17 +53,16 @@ beforeAll(async () => {
     }
 });
 
-
-afterAll(async () => {
-    try {
-        await queryInterface.bulkDelete("Users", null, toClear);
-        await queryInterface.bulkDelete("ProfilePsikologs", null, toClear);
-        await queryInterface.bulkDelete("SchedulePsikologs", null, toClear);
-        await queryInterface.bulkDelete("CustomerBookings", null, toClear);
-    } catch (error) {
-        console.log(error);
-    }
-});
+// afterAll(async () => {
+//     try {
+//         await queryInterface.bulkDelete("Users", null, toClear);
+//         await queryInterface.bulkDelete("ProfilePsikologs", null, toClear);
+//         await queryInterface.bulkDelete("SchedulePsikologs", null, toClear);
+//         await queryInterface.bulkDelete("CustomerBookings", null, toClear);
+//     } catch (error) {
+//         console.log(error);
+//     }
+// });
 
 test("psikolog: createProfile", async () => {
     try {
@@ -125,6 +124,23 @@ test("psikolog: profile", (done) => {
         .catch((err) => done(err));
 });
 
+test("psikolog: patchProfile", (done) => {
+    request(app)
+        .patch("/psikolog/profile")
+        .set("access_token", access_token)
+        .send({
+            fullname: "pemuda",
+            imageUrl: "sadasda",
+            description: "sdasdasda",
+            certificate: "dsdsadsadefrfafadsfada",
+        })
+        .expect(200)
+        .then((response) => {
+            done();
+        })
+        .catch((err) => done(err));
+});
+
 test("psikolog: createSchedule", (done) => {
     request(app)
         .post("/psikolog/profile/schedule")
@@ -144,6 +160,31 @@ test("psikolog: createSchedule", (done) => {
 test("psikolog: detailSchedule", (done) => {
     request(app)
         .get("/psikolog/1")
+        .set("access_token", access_token)
+        .expect(200)
+        .then((response) => {
+            done();
+        })
+        .catch((err) => done(err));
+});
+test("psikolog: put Schedule", (done) => {
+    request(app)
+        .put("/psikolog/1")
+        .set("access_token", access_token)
+        .send({
+            PsikologId: "1",
+            day: new Date(),
+        })
+        .expect(200)
+        .then((response) => {
+            done();
+        })
+        .catch((err) => done(err));
+});
+
+test("psikolog: delete Schedule", (done) => {
+    request(app)
+        .delete("/psikolog/1")
         .set("access_token", access_token)
         .expect(200)
         .then((response) => {
