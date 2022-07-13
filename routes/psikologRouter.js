@@ -8,5 +8,7 @@ router.post("/profile", authentication, checkFoundProfilePsikolog, Controller.cr
 router.patch("/profile", authentication, Controller.patchProfile);
 router.post("/profile/schedule", authentication, checkProfilePsikolog, Controller.createSchedule); 
 router.get("/:ScheduleId", authentication, authorizeOwnerPsikolog, Controller.detailSchedule); 
+router.delete("/:ScheduleId", authentication, authorizeOwnerPsikolog, Controller.destroySchedule); 
+router.put("/:ScheduleId", authentication, authorizeOwnerPsikolog,checkProfilePsikolog, Controller.updateSchedule); 
 
 module.exports = router;

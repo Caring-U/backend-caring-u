@@ -1,7 +1,7 @@
 const { CustomerBooking, User, SchedulePsikolog, ProfilePsikolog } = require("../models");
 
 module.exports = class Controller {
-    static async getAllSchedule(req, res, next) {
+    static async getAllSchedule(req, res, next) { //masih belum fix
         try {
             const data = await SchedulePsikolog.findAndCountAll({
                 include: [
@@ -119,10 +119,39 @@ module.exports = class Controller {
             const data = {
                 PsikologId: req.profilePsikolog.id,
                 day: req.body.day,
-                time: req.body.time,
+                // time: req.body.time,
             };
             await SchedulePsikolog.create(data);
             res.status(201).json({ status: true, message: "success create schedule" });
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    static async destroySchedule(req, res, next){
+        try {
+            await SchedulePsikolog.destroy({
+                where : {
+                    id : req.params.ScheduleId
+                }
+            })
+            res.status().json({status : true, message : `success delete id schedule ${req.params.ScheduleId}`})
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    static async updateSchedule(req, res, next) {
+        try {
+            const data = {
+                PsikologId: req.profilePsikolog.id,
+                day: req.body.day,
+                // time: req.body.time,
+            };
+            await SchedulePsikolog.update(data, {where : {
+                id : req.params.ScheduleId
+            }});
+            res.status().json({status : true, message : `success update id schedule ${req.params.ScheduleId}`})
         } catch (error) {
             next(error);
         }
