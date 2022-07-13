@@ -127,4 +127,17 @@ module.exports = class Controller {
             next(error);
         }
     }
+
+    static async destroySchedule(req, res, next){
+        try {
+            await SchedulePsikolog.destroy({
+                where : {
+                    id : req.params.ScheduleId
+                }
+            })
+            res.status().json({status : true, message : `success delete id schedule ${req.params.ScheduleId}`})
+        } catch (error) {
+            next(error);
+        }
+    }
 };
