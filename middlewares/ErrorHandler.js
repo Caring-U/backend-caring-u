@@ -9,10 +9,10 @@ module.exports = (err, req, res, next) => {
         msgError;
         errorStatus = 403;
     }
-    if(err.name === 'SequelizeValidationError' || err.name === 'SequelizeUniqueConstraintError'){
-        errorStatus = 400
-        msgError = err.errors[0].message
+    if (err.name === "SequelizeValidationError" || err.name === "SequelizeUniqueConstraintError") {
+        errorStatus = 400;
+        msgError = err.errors[0].message;
     }
 
-    res.status(errorStatus).json({status : false, message : msgError})
+    res.status(errorStatus).json({ status: false, message: msgError });
 };

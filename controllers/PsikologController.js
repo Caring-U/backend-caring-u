@@ -16,8 +16,6 @@ module.exports = class Controller {
                         include: [User],
                     },
                 ],
-                offset: req.query.page || 0,
-                limit: 4,
                 order: [["id", "DESC"]],
             });
             res.status(200).json({ status: true, result: data });
