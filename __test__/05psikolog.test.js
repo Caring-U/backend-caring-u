@@ -47,12 +47,12 @@ beforeAll(async () => {
         await User.create(users);
 
         // await queryInterface.bulkInsert("Users", users);
-        //
         access_token = sign({ email: users.email });
     } catch (error) {
         console.log(error);
     }
 });
+
 
 afterAll(async () => {
     try {
@@ -99,20 +99,19 @@ test("psikolog: login", (done) => {
 });
 
 test("psikolog: createProfile sudah ada", async () => {
-   try {
-       const response = await request(app).post("/psikolog/profile").set("access_token", access_token).send({
-           UserId: 1,
-           fullname: "nanas",
-           imageUrl: "bolo bolo",
-           description: "bolo bolo",
-           rating: 0,
-           certificate: "update your sertificat",
-       });
-       expect(403);
-
-   } catch (error) {
-       console.log(error);
-   }
+    try {
+        const response = await request(app).post("/psikolog/profile").set("access_token", access_token).send({
+            UserId: 1,
+            fullname: "nanas",
+            imageUrl: "bolo bolo",
+            description: "bolo bolo",
+            rating: 0,
+            certificate: "update your sertificat",
+        });
+        expect(403);
+    } catch (error) {
+        console.log(error);
+    }
 });
 
 test("psikolog: profile", (done) => {
