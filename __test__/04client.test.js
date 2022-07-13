@@ -5,7 +5,13 @@ const { queryInterface } = sequelize;
 const { sign } = require("../helpers/jwt");
 const { hashPassword } = require("../helpers/bcrypt");
 
-const users = [
+const users = {
+    username: "nas",
+    email: "nas@gmail.com",
+    password: "nas123",
+    role: "client",
+};
+const users1 = [
     {
         username: "nanas",
         email: "nanas@gmail.com",
@@ -22,22 +28,22 @@ const users = [
         createdAt: new Date(),
         updatedAt: new Date(),
     },
-    {
-        username: "nas",
-        email: "nas@gmail.com",
-        password: hashPassword("nas123"),
-        role: "client",
-        createdAt: new Date(),
-        updatedAt: new Date(),
-    },
 ];
 
-const psikologProfile = require("../db/psikologProfile.json").map((el) => {
-    el.createdAt = new Date();
-    el.updatedAt = new Date();
-
-    return el;
-});
+const psikologProfile = [
+    {
+        PsikologId: 1,
+        day: "2022-07-06T02:33:53.000Z",
+        time: "pagi",
+        price: 150000,
+    },
+    {
+        PsikologId: 1,
+        day: "2022-07-06T02:33:53.000Z",
+        time: "pagi",
+        price: 150000,
+    },
+];
 const scheculePsikolog = require("../db/schedulePsikolog.json").map((el) => {
     el.createdAt = new Date();
     el.updatedAt = new Date();
@@ -82,11 +88,12 @@ beforeAll(async () => {
         await queryInterface.bulkDelete("SchedulePsikologs", null, toClear);
         await queryInterface.bulkDelete("CustomerBookings", null, toClear);
 
-        // await User.create(users);
-
-        await queryInterface.bulkInsert("Users", users);
+        await User.create(users);
+        await queryInterface.bulkInsert("Users", users1);
         // await CustomerBooking.create(custBooking);
+        
         await queryInterface.bulkInsert("CustomerBookings", custBooking);
+
         await queryInterface.bulkInsert("SchedulePsikologs", scheculePsikolog);
         await queryInterface.bulkInsert("ProfilePsikologs", psikologProfile);
     } catch (error) {
@@ -116,7 +123,7 @@ test("login: success", (done) => {
         .then((response) => {
             // console.log(response._body.result);
             access_token = response._body.result;
-            // expect(response.body).toHaveProperty("result");
+            expect(response.body).toHaveProperty("result");
             done();
         })
         .catch((err) => done(err));
@@ -134,20 +141,9 @@ test("customer booking: client login", (done) => {
         .catch((err) => done(err));
 });
 
-// test("customer booking: details", (done) => {
-//     request(app)
-//         .get("/client/1")
-//         .set("access_token", access_token)
-//         .expect(200)
-//         .then((response) => {
-//             done();
-//         })
-//         .catch((err) => done(err));
-// });
-
-test("customer booking: booking", (done) => {
+test("customer booking: details", (done) => {
     request(app)
-        .post("/client/booking")
+        .get("/client/1")
         .set("access_token", access_token)
         .expect(200)
         .then((response) => {
@@ -155,3 +151,18 @@ test("customer booking: booking", (done) => {
         })
         .catch((err) => done(err));
 });
+
+// test("customer booking: booking", (done) => {
+//     request(app)
+//         .post("/client/booking")
+//         .set("access_token", access_token)
+//         .send({
+//             id:"1",
+
+//         })
+//         .expect(200)
+//         .then((response) => {
+//             done();
+//         })
+//         .catch((err) => done(err));
+// });

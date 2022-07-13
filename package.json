@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx jest --coverage --detectOpenHandles",
-    "testw": "npx jest --watch",
+    "testw": "npx jest --watchAll",
     "dev": "npx nodemon bin/www"
   },
   "repository": {
