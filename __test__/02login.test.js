@@ -84,6 +84,20 @@ test("login: wrong email", (done) => {
         })
         .catch((err) => done(err));
 });
+test("login: wrong email", (done) => {
+    request(app)
+        .post("/users/login")
+        .send({
+            email: "wahyu@gmail.com",
+            password: "112233",
+        })
+        .expect(401)
+        .then((response) => {
+            // console.log(response);
+            done();
+        })
+        .catch((err) => done(err));
+});
 
 test("login: wrong password", (done) => {
     request(app)

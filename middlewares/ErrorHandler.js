@@ -5,10 +5,7 @@ module.exports = (err, req, res, next) => {
     if (err.name === "NotFound") {
         msgError;
         errorStatus = 404;
-    } else if (err.name === "Forbidden") {
-        msgError;
-        errorStatus = 403;
-    }
+    } 
     if (err.name === "SequelizeValidationError" || err.name === "SequelizeUniqueConstraintError") {
         errorStatus = 400;
         msgError = err.errors[0].message;

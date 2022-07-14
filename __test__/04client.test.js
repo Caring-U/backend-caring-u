@@ -175,6 +175,27 @@ test("customer booking: details failed", (done) => {
         .catch((err) => done(err));
 });
 
+test("customer booking: details not found", (done) => {
+    request(app)
+        .get("/client/9999")
+        .set("access_token", access_token)
+        .expect(404)
+        .then((response) => {
+            done();
+        })
+        .catch((err) => done(err));
+});
+
+test("customer booking: details not found no login", (done) => {
+    request(app)
+        .get("/client/9999")
+        .expect(401)
+        .then((response) => {
+            done();
+        })
+        .catch((err) => done(err));
+});
+
 test("customer booking: details", (done) => {
     request(app)
         .get("/client/1")
@@ -188,7 +209,7 @@ test("customer booking: details", (done) => {
 
 let order_id;
 
-test("customer booking: booking", (done) => {
+test("customer booking: booking PERMATA", (done) => {
     request(app)
         .post("/client/booking")
         .set("access_token", access_token)
@@ -205,6 +226,33 @@ test("customer booking: booking", (done) => {
         .catch((err) => done(err));
 });
 
+test("customer booking: booking BCA", (done) => {
+    request(app)
+        .post("/client/booking")
+        .set("access_token", access_token)
+        .send({
+            schedulePsikologId: 1,
+            bank: "bca",
+        })
+        .expect(200)
+        .then((response) => {
+            // console.log(response.body);
+            order_id = response.body.orderId;
+            done();
+        })
+        .catch((err) => done(err));
+});
+
+test("customer booking: booking failed schedulePsikologId", (done) => {
+    request(app)
+        .post("/client/booking")
+        .set("access_token", access_token)
+        .expect(500)
+        .then((response) => {
+            done();
+        })
+        .catch((err) => done(err));
+});
 test("customer booking: booking failed schedulePsikologId", (done) => {
     request(app)
         .post("/client/booking")
@@ -234,6 +282,33 @@ test("customer booking: booking failed bank", (done) => {
         .catch((err) => done(err));
 });
 
+test("customer booking: notification failed pending", (done) => {
+    request(app)
+        .post("/notifikasi-midtrans")
+        .send({
+            transaction_status: "",
+            order_id,
+        })
+        .expect(200)
+        .then((response) => {
+            done();
+        })
+        .catch((err) => done(err));
+});
+test("customer booking: notification change unpaid", (done) => {
+    request(app)
+        .post("/notifikasi-midtrans")
+        .send({
+            transaction_status: "deny",
+            order_id,
+        })
+        .expect(200)
+        .then((response) => {
+            done();
+        })
+        .catch((err) => done(err));
+});
+
 test("customer booking: notification", (done) => {
     request(app)
         .post("/notifikasi-midtrans")
@@ -242,6 +317,29 @@ test("customer booking: notification", (done) => {
             order_id,
         })
         .expect(200)
+        .then((response) => {
+            done();
+        })
+        .catch((err) => done(err));
+});
+
+test("customer booking: notification error", (done) => {
+    request(app)
+        .post("/notifikasi-midtrans")
+        .expect(500)
+        .then((response) => {
+            done();
+        })
+        .catch((err) => done(err));
+});
+
+test("customer booking: notification error", (done) => {
+    request(app)
+        .post("/notifikasi-midtrans")
+        .send({
+            transaction_status: "settlement",
+        })
+        .expect(500)
         .then((response) => {
             done();
         })
