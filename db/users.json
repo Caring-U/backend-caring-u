@@ -1,6 +1,6 @@
 [
     {
-        "username": "nanas",
+        "username": "Nanas",
         "email": "nanas@gmail.com",
         "password": "112233",
         "role": "psikolog"
@@ -48,14 +48,14 @@
         "role": "admin"
     },
     {
-        "username": "nas",
-        "email": "nas@gmail.com",
+        "username": "iyun",
+        "email": "iyunrozikin26@gmail.com",
         "password": "nas123",
         "role": "client"
     },
     {
-        "username": "Sulfianto",
-        "email": "anto@gmail.com",
+        "username": "agit",
+        "email": "agit.zaini@gmail.com",
         "password": "112233",
         "role": "client"
     }
