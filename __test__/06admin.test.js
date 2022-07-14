@@ -16,7 +16,7 @@ const users1 = [
         username: "nas",
         email: "nas@gmail.com",
         password: hashPassword("112233"),
-        role: "admin",
+        role: "client",
         createdAt: new Date(),
         updatedAt: new Date(),
     },
@@ -58,6 +58,8 @@ const psikologProfile = [
 ];
 
 let access_token;
+let access_token2;
+
 const toClear = {
     truncate: true,
     cascade: true,
@@ -89,7 +91,7 @@ test("login: success", (done) => {
         })
         .expect(200)
         .then((response) => {
-            access_token = response._body.result;
+            access_token = response.body.result;
             expect(response.body).toHaveProperty("result");
 
             done();
@@ -108,7 +110,21 @@ test("admin: allPsikolog", (done) => {
         .catch((err) => done(err));
 });
 
-test("psikolog: patchPsikolog by admin", (done) => {
+test("admin: patchPsikolog by admin failed", (done) => {
+    request(app)
+        .patch("/admin/list-psikolog/9999")
+        .set("access_token", access_token)
+        .send({
+            status: "Verify",
+        })
+        .expect(404)
+        .then((response) => {
+            done();
+        })
+        .catch((err) => done(err));
+});
+
+test("admin: patchPsikolog by admin", (done) => {
     request(app)
         .patch("/admin/list-psikolog/1")
         .set("access_token", access_token)

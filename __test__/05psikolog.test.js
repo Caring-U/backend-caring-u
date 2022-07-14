@@ -64,6 +64,22 @@ beforeAll(async () => {
 //     }
 // });
 
+test("psikolog: createProfile error", async () => {
+    try {
+        const response = await request(app).post("/psikolog/profile").send({
+            UserId: 1,
+            fullname: "nanas",
+            imageUrl: "bolo bolo",
+            description: "bolo bolo",
+            rating: 0,
+            certificate: "update your sertificat",
+        });
+        expect(401);
+    } catch (error) {
+        expect(error.status).toMatch(401);
+    }
+});
+
 test("psikolog: createProfile", async () => {
     try {
         const response = await request(app).post("/psikolog/profile").set("access_token", access_token).send({
@@ -81,11 +97,41 @@ test("psikolog: createProfile", async () => {
         await queryInterface.bulkInsert("SchedulePsikologs", scheculePsikolog);
         await queryInterface.bulkInsert("CustomerBookings", custBooking);
     } catch (error) {
-        console.log(error);
+        expect(error.name).toMatch("SequelizeForeignKeyConstraintError");
+    }
+});
+
+test("psikolog: createProfile", async () => {
+    try {
+        const response = await request(app).post("/psikolog/profile").set("access_token", access_token).send({
+            UserId: 1,
+            fullname: "nanas",
+            imageUrl: "bolo bolo",
+            description: "bolo bolo",
+            rating: 0,
+            certificate: "update your sertificat",
+        });
+        expect(403);
+        await queryInterface.bulkDelete("ProfilePsikologs", null, toClear);
+        await queryInterface.bulkInsert("ProfilePsikologs", psikologProfile);
+        await queryInterface.bulkInsert("SchedulePsikologs", scheculePsikolog);
+        await queryInterface.bulkInsert("CustomerBookings", custBooking);
+    } catch (error) {
+        expect(error.name).toMatch("SequelizeForeignKeyConstraintError");
     }
 });
 
 // /psikolog
+test("psikolog: notlogin", (done) => {
+    request(app)
+        .get("/psikolog")
+        .expect(401)
+        .then((response) => {
+            done();
+        })
+        .catch((err) => done(err));
+});
+
 test("psikolog: login", (done) => {
     request(app)
         .get("/psikolog")
@@ -141,6 +187,17 @@ test("psikolog: patchProfile", (done) => {
         .catch((err) => done(err));
 });
 
+test("psikolog: patchProfile error", (done) => {
+    request(app)
+        .patch("/psikolog/profile")
+        .set("access_token", access_token)
+        .expect(500)
+        .then((response) => {
+            done();
+        })
+        .catch((err) => done(err));
+});
+
 test("psikolog: createSchedule", (done) => {
     request(app)
         .post("/psikolog/profile/schedule")
@@ -157,6 +214,27 @@ test("psikolog: createSchedule", (done) => {
         .catch((err) => done(err));
 });
 
+test("psikolog: detailSchedule unAuthorize", (done) => {
+    request(app)
+        .get("/psikolog/1")
+        .expect(401)
+        .then((response) => {
+            done();
+        })
+        .catch((err) => done(err));
+});
+
+test("psikolog: detailSchedule error not found", (done) => {
+    request(app)
+        .get("/psikolog/99999")
+        .set("access_token", access_token)
+        .expect(404)
+        .then((response) => {
+            done();
+        })
+        .catch((err) => done(err));
+});
+
 test("psikolog: detailSchedule", (done) => {
     request(app)
         .get("/psikolog/1")
@@ -167,6 +245,36 @@ test("psikolog: detailSchedule", (done) => {
         })
         .catch((err) => done(err));
 });
+
+test("psikolog: put Schedule not found", (done) => {
+    request(app)
+        .put("/psikolog/9999")
+        .set("access_token", access_token)
+        .send({
+            PsikologId: "1",
+            day: new Date(),
+        })
+        .expect(404)
+        .then((response) => {
+            done();
+        })
+        .catch((err) => done(err));
+});
+
+test("psikolog: put Schedule no login", (done) => {
+    request(app)
+        .put("/psikolog/1")
+        .send({
+            PsikologId: "1",
+            day: new Date(),
+        })
+        .expect(401)
+        .then((response) => {
+            done();
+        })
+        .catch((err) => done(err));
+});
+
 test("psikolog: put Schedule", (done) => {
     request(app)
         .put("/psikolog/1")
@@ -176,6 +284,27 @@ test("psikolog: put Schedule", (done) => {
             day: new Date(),
         })
         .expect(200)
+        .then((response) => {
+            done();
+        })
+        .catch((err) => done(err));
+});
+
+test("psikolog: delete Schedule not found", (done) => {
+    request(app)
+        .delete("/psikolog/  ")
+        .set("access_token", access_token)
+        .expect(404)
+        .then((response) => {
+            done();
+        })
+        .catch((err) => done(err));
+});
+
+test("psikolog: delete Schedule no login", (done) => {
+    request(app)
+        .delete("/psikolog/1")
+        .expect(401)
         .then((response) => {
             done();
         })

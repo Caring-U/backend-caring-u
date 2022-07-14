@@ -6,13 +6,6 @@ const adminRouter = require("./adminRouter.js");
 const HomeController = require("../controllers/HomeController.js");
 const userRouter = require("./userRouter.js");
 
-router.get("/", (req, res, next) => {
-    res.status(200).json({
-        status: true,
-        message: "Hello Caring-U",
-    });
-});
-
 //untuk halaman utama
 router.get("/list-psikolog", HomeController.getAllPsikolog); // berhasil
 router.get("/list-psikolog/:ProfilePsikologId", HomeController.detailProfilePsikolog); // berhasil
